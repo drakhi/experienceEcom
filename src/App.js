@@ -1,24 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import Latestnews from './components/latestnews';
+import Visitorslist from './components/visitorslist'
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Header from './components/header';
+import Row from 'react-bootstrap/Row'
+import Container from 'react-bootstrap/Container'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+          <Header />
+             <Container fluid>
+  
+    
+        {/* <div className="wrapper"> */}
+          <Switch>
+            <Route path={"/"} exact component={Visitorslist} />
+            <Route path={"/latestnews"} component={Latestnews} />
+            {/* <Route path={"/contact"} component={Contact} /> */}
+            {/* <Route component={ErrorPage} /> */}
+          </Switch>
+        {/* </div> */}
+        
+        </Container>
+
+    </Router>
   );
 }
 
